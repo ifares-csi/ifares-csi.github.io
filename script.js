@@ -261,12 +261,95 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Google Scholar Publications Fetching from publications.txt
-    // IMPORTANT: Due to browser security (CORS), fetching local files directly
-    // from 'file://' URLs is usually blocked. To make this work, you need to
-    // serve your portfolio using a local web server (e.g., Python's http.server).
-    // Example: cd /home/ifares/portofilo && python3 -m http.server 8000
-    // Then open http://localhost:8000 in your browser.
+    """    // Publications data is now embedded directly to avoid CORS issues.
+    const bibtexContent = `
+@inproceedings{fares2020multiple,
+  title={Multiple cyclic swarming optimization for uni-and multi-modal functions},
+  author={Fares, Ibrahim and Rizk-Allah, Rizk M and Hassanien, Aboul Ella and Vaclav, Snasel},
+  booktitle={International Conference on Innovative Computing and Communications: Proceedings of ICICC 2019, Volume 1},
+  pages={887--898},
+  year={2020},
+  organization={Springer Singapore}
+}
+
+@article{fares2023solving,
+  title={Solving capacitated vehicle routing problem with route optimisation based on equilibrium optimiser algorithm},
+  author={Fares, Ibrahim and Hassanien, Aboul Ella and Rizk-Allah, Rizk M and Farouk, Roushdy Mohamed and Abo-donia, Hassan Mostafa},
+  journal={International Journal of Computing Science and Mathematics},
+  volume={17},
+  number={1},
+  pages={13--27},
+  year={2023},
+  publisher={Inderscience Publishers (IEL)}
+}
+
+@article{abd2024ckan,
+  title={Ckan: Convolutional kolmogorov--arnold networks model for intrusion detection in iot environment},
+  author={Abd Elaziz, Mohamed and Fares, Ibrahim Ahmed and Aseeri, Ahmad O},
+  journal={IEEE Access},
+  year={2024},
+  publisher={IEEE}
+}
+
+@article{fares2025explainable,
+  title={Explainable tabnet transformer-based on google vizier optimizer for anomaly intrusion detection system},
+  author={Fares, Ibrahim A and Abd Elaziz, Mohamed},
+  journal={Knowledge-Based Systems},
+  volume={316},
+  pages={113351},
+  year={2025},
+  publisher={Elsevier}
+}
+
+@article{fares2025tfkan,
+  title={TFKAN: transformer based on Kolmogorov--Arnold networks for intrusion detection in IoT environment},
+  author={Fares, Ibrahim A and Abd Elaziz, Mohamed and Aseeri, Ahmad O and Zied, Hamed Shawky and Abdellatif, Ahmed G},
+  journal={Egyptian Informatics Journal},
+  volume={30},
+  pages={100666},
+  year={2025},
+  publisher={Elsevier}
+}
+
+@article{abd2025federated,
+  title={Federated learning framework for IoT intrusion detection using tab transformer and nature-inspired hyperparameter optimization},
+  author={Abd Elaziz, Mohamed and Fares, Ibrahim A and Dahou, Abdelghani and Shrahili, Mansour},
+  journal={Frontiers in Big Data},
+  volume={8},
+  pages={1526480},
+  year={2025},
+  publisher={Frontiers Media SA}
+}
+
+@article{fares2025ft,
+  title={FT-Transformer for Intrusion Detection in IoT Environment},
+  author={Fares, Ibrahim Ahmed and Abd Elaziz, Mohamed},
+  journal={Bulletin of Faculty of Science, Zagazig University},
+  volume={2025},
+  number={1},
+  pages={114--123},
+  year={2025},
+  publisher={Zagazig University; Faculty of Science. Center of Scientific Studies and~…}
+}
+
+@article{fares2025deep,
+  title={Deep Transfer Learning Based on Hybrid Swin Transformers With LSTM for Intrusion Detection Systems in IoT Environment},
+  author={Fares, Ibrahim A and Abdellatif, Ahmed G and Abd Elaziz, Mohamed and Shrahili, Mansour and Elmahallawy, Adham and Sohaib, Rana Muhammad and Shawky, Mahmoud A and Shah, Syed Tariq},
+  journal={IEEE Open Journal of the Communications Society},
+  year={2025},
+  publisher={IEEE}
+}
+
+@article{nafisah2025deep,
+  title={Deep learning-based feature selection for detection of autism spectrum disorder},
+  author={Nafisah, Ibrahim and Mahmoud, Nermine and Ewees, Ahmed A and Khattap, Mohamed G and Dahou, Abdelghani and Alghamdi, Safar M and Fares, Ibrahim A and Azmi Al-Betar, Mohammed and Abd Elaziz, Mohamed},
+  journal={Frontiers in Artificial Intelligence},
+  volume={8},
+  pages={1594372},
+  year={2025},
+  publisher={Frontiers Media SA}
+}
+`;
 
     function parseBibtex(bibtexString) {
         const publications = [];
@@ -279,7 +362,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const content = entry.substring(entry.indexOf('{') + 1, entry.lastIndexOf('}'));
 
             const fields = {};
-            const regex = /(\w+)\s*=\s*{(.*?)}/gs; // Corrected, simpler regex with 's' flag for multiline
+            const regex = /(\w+)\s*=\s*{(.*?)}/gs; 
             let match;
             while ((match = regex.exec(content)) !== null) {
                 fields[match[1].toLowerCase()] = match[2].replace(/\s+/g, ' ').trim();
@@ -304,19 +387,12 @@ document.addEventListener('DOMContentLoaded', () => {
         return publications;
     }
 
-    async function updatePublications() {
+    function updatePublications() {
         const publicationsContainer = document.getElementById('scholar-publications');
         publicationsContainer.innerHTML = 'Loading publications...';
 
         try {
-            const response = await fetch('publications.txt');
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            const bibtexContent = await response.text();
             let parsedPublications = parseBibtex(bibtexContent);
-
-            // Sort publications by year in descending order
             parsedPublications.sort((a, b) => (b.year || 0) - (a.year || 0));
 
             const publicationsByYear = parsedPublications.reduce((acc, pub) => {
@@ -350,10 +426,11 @@ document.addEventListener('DOMContentLoaded', () => {
             publicationsContainer.innerHTML = htmlContent;
 
         } catch (error) {
-            console.error('Error fetching or parsing publications:', error);
-            publicationsContainer.innerHTML = '<p>Failed to load publications. Please ensure you are serving the site via a web server (e.g., `python3 -m http.server`) and that `publications.txt` is in the same directory.</p>';
+            console.error('Error parsing publications:', error);
+            publicationsContainer.innerHTML = '<p>Failed to load publications.</p>';
         }
     }
 
     updatePublications();
+""
 });
