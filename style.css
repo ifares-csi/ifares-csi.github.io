@@ -218,26 +218,62 @@ li {
 }
 
 /* About Section */
+#about p {
+    text-align: center;
+    font-size: 1.1rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Research Section */
 .research-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
     gap: 30px;
 }
 
-.research-column {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+.research-item {
+    background-color: var(--light-bg);
+    padding: 20px;
+    border-radius: var(--border-radius);
+    border-left: 5px solid var(--accent-color);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: transform var(--transition-speed);
 }
 
-.reveal.active .research-column {
-    opacity: 1;
-    transform: translateY(0);
+.research-item:hover {
+    transform: translateY(-5px);
 }
 
-.research-column ul {
-    list-style: disc;
+.research-item span {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    display: block;
+    margin-bottom: 10px;
 }
+
+.progress-bar-container {
+    width: 100%;
+    background-color: #e0e0e0;
+    border-radius: 5px;
+    height: 20px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    background-color: var(--secondary-color);
+    height: 100%;
+    width: 0; /* Initially 0, will be set by JS */
+    border-radius: 5px;
+    transition: width 1.5s ease-in-out;
+    text-align: right;
+    padding-right: 5px;
+    line-height: 20px;
+    color: white;
+    font-weight: bold;
+}
+
 
 /* Education & Experience */
 .education-item, .experience-item {
@@ -512,6 +548,23 @@ footer {
     margin-top: 50px;
     box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.1);
 }
+
+.social-links {
+    margin-bottom: 15px;
+}
+
+.social-links a {
+    color: var(--light-text);
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 1.2rem;
+    transition: color var(--transition-speed);
+}
+
+.social-links a:hover {
+    color: var(--secondary-color);
+}
+
 
 /* Reveal Effect */
 .reveal {

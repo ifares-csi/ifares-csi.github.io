@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Scroll-triggered Reveal Effects
+    // Scroll-triggered Reveal Effects and Progress Bar Animation
     const revealElements = document.querySelectorAll('.reveal');
 
     function revealOnScroll() {
@@ -88,6 +88,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (elementTop < viewportHeight - 100) { // Adjust 100px as needed
                 element.classList.add('active');
+
+                // If the revealed element is the research section, animate progress bars
+                if (element.id === 'research') {
+                    const progressBars = element.querySelectorAll('.progress-bar');
+                    progressBars.forEach(bar => {
+                        const progress = bar.getAttribute('data-progress');
+                        bar.style.width = progress;
+                        bar.textContent = progress;
+                    });
+                }
             } else {
                 element.classList.remove('active'); // Optional: remove active class when scrolling up
             }
@@ -118,8 +128,50 @@ document.addEventListener('DOMContentLoaded', () => {
             id: "project1",
             name: "CKAN: Convolutional Kolmogorov–Arnold Networks",
             description: "Implementing CNN model by Using KAN (Kolmogorov-Arnold Networks). IEEE Document Reference: Title: CKAN: Convolutional Kolmogorov–Arnold Networks Model for Intrusion Detection in IoT Environment. Authors: Mohamed Abd Elaziz; Ibrahim Ahmed Fares; Ahmad O. Aseeri. Publication: IEEE Access. Year: 2024. DOI: 10.1109/ACCESS.2024.3462297",
-            imageUrl: "https://via.placeholder.com/300x200?text=CKAN",
-            githubUrl: "https://doi.org/10.1109/ACCESS.2024.3462297"
+            imageUrl: "https://via.placeholder.com/300x200?text=CKAN+CNN+KAN",
+            githubUrl: "https://github.com/ifares-csi/CKAN"
+        },
+        {
+            id: "project2",
+            name: "TFKAN",
+            description: "Building New Transformer based on KAN: Kolmogorov-Arnold Networks",
+            imageUrl: "https://via.placeholder.com/300x200?text=TFKAN+Transformer",
+            githubUrl: "https://github.com/ifares-csi/TFKAN"
+        },
+        {
+            id: "project3",
+            name: "Attendance-System",
+            description: "this project for auto taking absence of students in lecture based on GPS also it have online test for students enrolled to your subjects",
+            imageUrl: "https://via.placeholder.com/300x200?text=GPS+Attendance",
+            githubUrl: "#"
+        },
+        {
+            id: "project4",
+            name: "Examination Schedule Generator",
+            description: "A comprehensive web application for generating, managing, and optimizing examination schedules for educational institutions.",
+            imageUrl: "https://via.placeholder.com/300x200?text=Exam+Schedule",
+            githubUrl: "#"
+        },
+        {
+            id: "project5",
+            name: "RAG-Chat with Gemini 2",
+            description: "This project demonstrates a Retrieval-Augmented Generation (RAG) chat application using: Google Generative AI (Gemini model via google.generativeai) LangChain (HuggingFaceEmbeddings, FAISS vector store, ConversationalRetrievalChain) Streamlit for a ChatGPT-like user interface",
+            imageUrl: "https://via.placeholder.com/300x200?text=RAG+Chat+Gemini",
+            githubUrl: "https://github.com/ifares-csi/ChatDocs"
+        },
+        {
+            id: "project6",
+            name: "WebChat: Chat with Web Pages using DeepSeek R1 locally [Ollama]",
+            description: "WebChat is an RAG-based web application that allows users to interact with web pages by summarizing their content and answering user queries using the Deepseek R1 language model. The app extracts textual content from a given URL, processes it into vector embeddings using FAISS, and retrieves relevant responses based on the user prompt.",
+            imageUrl: "https://via.placeholder.com/300x200?text=WebChat+DeepSeek",
+            githubUrl: "https://github.com/ifares-csi/WebChat"
+        },
+        {
+            id: "project7",
+            name: "Chat With WebPage",
+            description: "This project is a RAG application for chatting with Webpages that allows users to input a webpage URL and a custom query to retrieve response content using LangChain and OpenAI GPT-4o. The application processes webpage content, extracts relevant text, generates context-aware summaries, and answer the questions accodring the the content of the webpage.",
+            imageUrl: "https://via.placeholder.com/300x200?text=Chat+With+WebPage",
+            githubUrl: "https://github.com/ifares-csi/Chat-With-WebPage-Agent"
         }
     ];
 
