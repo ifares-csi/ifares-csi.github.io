@@ -117,44 +117,9 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             id: "project1",
             name: "CKAN: Convolutional Kolmogorov–Arnold Networks",
-            description: "Implementing CNN model by Using KAN (Kolmogorov-Arnold Networks) for Intrusion Detection in IoT Environment. Published in IEEE Access, 2024.",
-            imageUrl: "https://via.placeholder.com/300x200?text=CKAN+Project", // Placeholder image
-            githubUrl: "https://github.com/ifares-csi/CKAN"
-        },
-        {
-            id: "project2",
-            name: "AI-Powered Intrusion Detection System",
-            description: "Developed a novel AI model for real-time intrusion detection in IoT networks, achieving high accuracy and low false positive rates. Utilized deep learning and optimization algorithms.",
-            imageUrl: "https://via.placeholder.com/300x200?text=IDS+Project",
-            githubUrl: "https://github.com/ifares-csi/AI-IDS-Project" // Example URL
-        },
-        {
-            id: "project3",
-            name: "LLM Fine-tuning for Medical Diagnosis",
-            description: "Fine-tuned a large language model on medical datasets to assist in preliminary diagnosis and information retrieval for healthcare professionals.",
-            imageUrl: "https://via.placeholder.com/300x200?text=LLM+Medical",
-            githubUrl: "https://github.com/ifares-csi/LLM-Medical-Diagnosis" // Example URL
-        },
-        {
-            id: "project4",
-            name: "Federated Learning for Data Privacy",
-            description: "Implemented a federated learning framework to train machine learning models on decentralized datasets, ensuring data privacy and security.",
-            imageUrl: "https://via.placeholder.com/300x200?text=Federated+Learning",
-            githubUrl: "https://github.com/ifares-csi/Federated-Learning-Privacy" // Example URL
-        },
-        {
-            id: "project5",
-            name: "Cybersecurity Threat Intelligence Platform",
-            description: "Built a platform to aggregate and analyze cybersecurity threat intelligence from various sources, providing actionable insights.",
-            imageUrl: "https://via.placeholder.com/300x200?text=Threat+Intel",
-            githubUrl: "https://github.com/ifares-csi/Threat-Intelligence-Platform" // Example URL
-        },
-        {
-            id: "project6",
-            name: "Gorilla Troops Optimizer",
-            description: "Implementation of the Gorilla Troops Optimizer algorithm, a metaheuristic optimization algorithm inspired by the social behavior of gorillas.",
-            imageUrl: "https://via.placeholder.com/300x200?text=Gorilla+Optimizer",
-            githubUrl: "https://github.com/ifares-csi/gorilla-troops-optimizer"
+            description: "Implementing CNN model by Using KAN (Kolmogorov-Arnold Networks). IEEE Document Reference: Title: CKAN: Convolutional Kolmogorov–Arnold Networks Model for Intrusion Detection in IoT Environment. Authors: Mohamed Abd Elaziz; Ibrahim Ahmed Fares; Ahmad O. Aseeri. Publication: IEEE Access. Year: 2024. DOI: 10.1109/ACCESS.2024.3462297",
+            imageUrl: "https://via.placeholder.com/300x200?text=CKAN",
+            githubUrl: "https://doi.org/10.1109/ACCESS.2024.3462297"
         }
     ];
 
