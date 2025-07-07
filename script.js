@@ -262,7 +262,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Google Scholar Publications Fetching from publications.txt
+    """    // Google Scholar Publications Fetching from publications.txt
     // IMPORTANT: Due to browser security (CORS), fetching local files directly
     // from 'file://' URLs is usually blocked. To make this work, you need to
     // serve your portfolio using a local web server (e.g., Python's http.server).
@@ -280,11 +280,10 @@ document.addEventListener('DOMContentLoaded', () => {
             const content = entry.substring(entry.indexOf('{') + 1, entry.lastIndexOf('}'));
 
             const fields = {};
-            // Use a more robust regex to handle nested braces and different formatting
-            const regex = /\s*(\w+)\s*=\s*{(.*?[^\\])}/gs;
+            const regex = /(\w+)\s*=\s*{(.*?)}/gs; // Corrected, simpler regex with 's' flag for multiline
             let match;
             while ((match = regex.exec(content)) !== null) {
-                fields[match[1].toLowerCase()] = match[2].replace(/\n/g, ' ').replace(/\s+/g, ' ').trim();
+                fields[match[1].toLowerCase()] = match[2].replace(/\s+/g, ' ').trim();
             }
 
             let title = fields.title || 'No Title';
@@ -293,7 +292,6 @@ document.addEventListener('DOMContentLoaded', () => {
             let year = fields.year || 'No Year';
             let link = fields.url || (fields.doi ? `https://doi.org/${fields.doi}` : '#');
 
-            // Format authors: Replace "Fares, Ibrahim A" with "<strong>Ibrahim A. Fares</strong>"
             authors = authors.split(' and ').map(author => {
                 if (author.includes('Fares, Ibrahim A') || author.includes('Fares, Ibrahim Ahmed') || author.includes('Fares, Issam')) {
                     const parts = author.split(',').map(p => p.trim());
@@ -301,7 +299,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
                 return author;
             }).join(', ');
-
 
             publications.push({ title, authors, journal, year, link });
         });
@@ -320,10 +317,9 @@ document.addEventListener('DOMContentLoaded', () => {
             const bibtexContent = await response.text();
             let parsedPublications = parseBibtex(bibtexContent);
 
-            // Reverse the order of publications as they appear in the file
-            parsedPublications.reverse();
+            // Sort publications by year in descending order
+            parsedPublications.sort((a, b) => (b.year || 0) - (a.year || 0));
 
-            // Group publications by year (still useful for display structure)
             const publicationsByYear = parsedPublications.reduce((acc, pub) => {
                 const year = pub.year || 'Forthcoming';
                 if (!acc[year]) {
@@ -334,20 +330,18 @@ document.addEventListener('DOMContentLoaded', () => {
             }, {});
 
             let htmlContent = '';
-            // Sort years in descending order for display, but publications within year are reversed from the file
             const sortedYears = Object.keys(publicationsByYear).sort((a, b) => b - a);
 
             sortedYears.forEach(year => {
                 htmlContent += `<div class="year-container"><h3>${year}</h3><ol>`;
-                // Publications within each year are already in the desired reversed order from the file
                 publicationsByYear[year].forEach(pub => {
                     htmlContent += `
                         <li>
-                            ${pub.authors}, 
+                            ${pub.authors},
                             <a href="${pub.link}" target="_blank">
                                 <em>"${pub.title}"</em>
-                            </a>, 
-                            ${pub.journal}.
+                            </a>,
+                            <em>${pub.journal}</em>.
                         </li>
                     `;
                 });
@@ -362,5 +356,5 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    updatePublications();
+    updatePublications();""
 });
