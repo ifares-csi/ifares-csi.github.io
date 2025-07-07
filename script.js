@@ -123,8 +123,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // to fetch data from GitHub and then serve it to your frontend.
     // For this demo, we'll use a hardcoded list of projects.
 
-    const githubProjects = [
-        {
+    const githubProjects = [{
             id: "project1",
             name: "CKAN: Convolutional Kolmogorov–Arnold Networks",
             description: "Implementing CNN model by Using KAN (Kolmogorov-Arnold Networks). IEEE Document Reference: Title: CKAN: Convolutional Kolmogorov–Arnold Networks Model for Intrusion Detection in IoT Environment. Authors: Mohamed Abd Elaziz; Ibrahim Ahmed Fares; Ahmad O. Aseeri. Publication: IEEE Access. Year: 2024. DOI: 10.1109/ACCESS.2024.3462297",
@@ -293,7 +292,7 @@ document.addEventListener('DOMContentLoaded', () => {
             let link = fields.url || (fields.doi ? `https://doi.org/${fields.doi}` : '#');
 
             authors = authors.split(' and ').map(author => {
-                if (author.includes('Fares, Ibrahim A') || author.includes('Fares, Ibrahim Ahmed') || author.includes('Fares, Issam')) {
+                if (author.includes('Fares, Ibrahim A') || author.includes('Fares, Ibrahim Ahmed') || author.includes('Fares, Ibrahim')) {
                     const parts = author.split(',').map(p => p.trim());
                     return `<strong>${parts[1]} ${parts[0]}</strong>`;
                 }

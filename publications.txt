@@ -1,6 +1,6 @@
 @inproceedings{fares2020multiple,
   title={Multiple cyclic swarming optimization for uni-and multi-modal functions},
-  author={Fares, Issam and Rizk-Allah, Rizk M and Hassanien, Aboul Ella and Vaclav, Snasel},
+  author={Fares, Ibrahim and Rizk-Allah, Rizk M and Hassanien, Aboul Ella and Vaclav, Snasel},
   booktitle={International Conference on Innovative Computing and Communications: Proceedings of ICICC 2019, Volume 1},
   pages={887--898},
   year={2020},
