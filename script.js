@@ -107,69 +107,56 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', revealOnScroll);
     revealOnScroll(); // Initial check on load
 
-    // Project Modals
+    // Project Cards
     const projectCardsContainer = document.querySelector('.project-grid');
-    const modal = document.getElementById('project-modal');
-    const closeModal = document.querySelector('.close-button');
-    const modalTitle = document.getElementById('modal-title');
-    const modalImage = document.getElementById('modal-image');
-    const modalDescription = document.getElementById('modal-description');
-    const modalLink = document.getElementById('modal-link');
-
-    // --- GitHub Projects Integration (Client-side limitations) ---
-    // Directly fetching from GitHub API (e.g., https://api.github.com/users/ifares-csi/repos) 
-    // from client-side JavaScript is subject to CORS restrictions and API rate limits.
-    // For a production-ready solution, you would typically use a server-side proxy
-    // to fetch data from GitHub and then serve it to your frontend.
-    // For this demo, we'll use a hardcoded list of projects.
 
     const githubProjects = [{
             id: "project1",
             name: "CKAN: Convolutional Kolmogorov–Arnold Networks",
             description: "Implementing CNN model by Using KAN (Kolmogorov-Arnold Networks). IEEE Document Reference: Title: CKAN: Convolutional Kolmogorov–Arnold Networks Model for Intrusion Detection in IoT Environment. Authors: Mohamed Abd Elaziz; Ibrahim Ahmed Fares; Ahmad O. Aseeri. Publication: IEEE Access. Year: 2024. DOI: 10.1109/ACCESS.2024.3462297",
-            imageUrl: "https://raw.githubusercontent.com/ifares-csi/CKAN/main/CKAN.png",
+            imageUrl: "porject_images/ckan.jpg",
             githubUrl: "https://github.com/ifares-csi/CKAN"
         },
         {
             id: "project2",
             name: "TFKAN",
             description: "Building New Transformer based on KAN: Kolmogorov-Arnold Networks",
-            imageUrl: "https://raw.githubusercontent.com/ifares-csi/TFKAN/main/TFKAN.png",
+            imageUrl: "porject_images/tfkan.jpg",
             githubUrl: "https://github.com/ifares-csi/TFKAN"
         },
         {
             id: "project3",
             name: "Attendance-System",
             description: "this project for auto taking absence of students in lecture based on GPS also it have online test for students enrolled to your subjects",
-            imageUrl: "https://via.placeholder.com/300x200?text=Attendance+System",
+            imageUrl: "porject_images/attendace.jpg",
             githubUrl: "#"
         },
         {
             id: "project4",
             name: "Examination Schedule Generator",
             description: "A comprehensive web application for generating, managing, and optimizing examination schedules for educational institutions.",
-            imageUrl: "https://via.placeholder.com/300x200?text=Exam+Schedule+Generator",
+            imageUrl: "porject_images/exam sc generator.jpg",
             githubUrl: "#"
         },
         {
             id: "project5",
             name: "RAG-Chat with Gemini 2",
             description: "This project demonstrates a Retrieval-Augmented Generation (RAG) chat application using: Google Generative AI (Gemini model via google.generativeai) LangChain (HuggingFaceEmbeddings, FAISS vector store, ConversationalRetrievalChain) Streamlit for a ChatGPT-like user interface",
-            imageUrl: "https://raw.githubusercontent.com/ifares-csi/ChatDocs/main/img.png",
+            imageUrl: "porject_images/RAG-Chat with Gemini2.jpg",
             githubUrl: "https://github.com/ifares-csi/ChatDocs"
         },
         {
             id: "project6",
             name: "WebChat: Chat with Web Pages using DeepSeek R1 locally [Ollama]",
             description: "WebChat is an RAG-based web application that allows users to interact with web pages by summarizing their content and answering user queries using the Deepseek R1 language model. The app extracts textual content from a given URL, processes it into vector embeddings using FAISS, and retrieves relevant responses based on the user prompt.",
-            imageUrl: "https://raw.githubusercontent.com/ifares-csi/WebChat/main/img.png",
+            imageUrl: "porject_images/WebChat.png",
             githubUrl: "https://github.com/ifares-csi/WebChat"
         },
         {
             id: "project7",
             name: "Chat With WebPage",
             description: "This project is a RAG application for chatting with Webpages that allows users to input a webpage URL and a custom query to retrieve response content using LangChain and OpenAI GPT-4o. The application processes webpage content, extracts relevant text, generates context-aware summaries, and answer the questions accodring the the content of the webpage.",
-            imageUrl: "https://raw.githubusercontent.com/ifares-csi/Chat-With-WebPage-Agent/main/img.png",
+            imageUrl: "porject_images/chat with web.jpg",
             githubUrl: "https://github.com/ifares-csi/Chat-With-WebPage-Agent"
         }
     ];
@@ -179,45 +166,18 @@ document.addEventListener('DOMContentLoaded', () => {
         githubProjects.forEach(project => {
             const cardHtml = `
                 <div class="project-card" data-project-id="${project.id}">
-                    <img src="${project.imageUrl}" alt="${project.name} Thumbnail">
-                    <h3>${project.name}</h3>
-                    <p>${project.description.substring(0, 100)}...</p>
-                    <div class="project-overlay">
-                        <button class="view-details-btn">View Details</button>
-                    </div>
+                    <a href="${project.githubUrl}" target="_blank">
+                        <img src="${project.imageUrl}" alt="${project.name} Thumbnail">
+                        <h3>${project.name}</h3>
+                        <p>${project.description.substring(0, 100)}...</p>
+                    </a>
                 </div>
             `;
             projectCardsContainer.insertAdjacentHTML('beforeend', cardHtml);
         });
-
-        // Re-attach event listeners after rendering new cards
-        document.querySelectorAll('.project-card').forEach(card => {
-            card.addEventListener('click', () => {
-                const projectId = card.dataset.projectId;
-                const details = githubProjects.find(p => p.id === projectId);
-
-                if (details) {
-                    modalTitle.textContent = details.name;
-                    modalImage.src = details.imageUrl;
-                    modalDescription.textContent = details.description;
-                    modalLink.href = details.githubUrl;
-                    modal.style.display = 'flex';
-                }
-            });
-        });
     }
 
     renderProjects();
-
-    closeModal.addEventListener('click', () => {
-        modal.style.display = 'none';
-    });
-
-    window.addEventListener('click', (event) => {
-        if (event.target === modal) {
-            modal.style.display = 'none';
-        }
-    });
 
     // Contact Form Validation and Animations
     const contactForm = document.querySelector('.contact-form');
@@ -261,9 +221,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    """    // Publications data is now embedded directly to avoid CORS issues.
+    // Publications data is now embedded directly to avoid CORS issues.
     const bibtexContent = `
-@inproceedings{fares2020multiple,
+@article{fares2020multiple,
   title={Multiple cyclic swarming optimization for uni-and multi-modal functions},
   author={Fares, Ibrahim and Rizk-Allah, Rizk M and Hassanien, Aboul Ella and Vaclav, Snasel},
   booktitle={International Conference on Innovative Computing and Communications: Proceedings of ICICC 2019, Volume 1},
@@ -362,7 +322,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const content = entry.substring(entry.indexOf('{') + 1, entry.lastIndexOf('}'));
 
             const fields = {};
-            const regex = /(\w+)\s*=\s*{(.*?)}/gs; 
+            const regex = /(\w+)\s*=\s*{(.*?)}/gs;
             let match;
             while ((match = regex.exec(content)) !== null) {
                 fields[match[1].toLowerCase()] = match[2].replace(/\s+/g, ' ').trim();
@@ -432,5 +392,4 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     updatePublications();
-""
 });
