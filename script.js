@@ -128,49 +128,49 @@ document.addEventListener('DOMContentLoaded', () => {
             id: "project1",
             name: "CKAN: Convolutional Kolmogorov–Arnold Networks",
             description: "Implementing CNN model by Using KAN (Kolmogorov-Arnold Networks). IEEE Document Reference: Title: CKAN: Convolutional Kolmogorov–Arnold Networks Model for Intrusion Detection in IoT Environment. Authors: Mohamed Abd Elaziz; Ibrahim Ahmed Fares; Ahmad O. Aseeri. Publication: IEEE Access. Year: 2024. DOI: 10.1109/ACCESS.2024.3462297",
-            imageUrl: "https://via.placeholder.com/300x200?text=CKAN+CNN+KAN",
+            imageUrl: "https://raw.githubusercontent.com/ifares-csi/CKAN/main/CKAN.png",
             githubUrl: "https://github.com/ifares-csi/CKAN"
         },
         {
             id: "project2",
             name: "TFKAN",
             description: "Building New Transformer based on KAN: Kolmogorov-Arnold Networks",
-            imageUrl: "https://via.placeholder.com/300x200?text=TFKAN+Transformer",
+            imageUrl: "https://raw.githubusercontent.com/ifares-csi/TFKAN/main/TFKAN.png",
             githubUrl: "https://github.com/ifares-csi/TFKAN"
         },
         {
             id: "project3",
             name: "Attendance-System",
             description: "this project for auto taking absence of students in lecture based on GPS also it have online test for students enrolled to your subjects",
-            imageUrl: "https://via.placeholder.com/300x200?text=GPS+Attendance",
+            imageUrl: "https://via.placeholder.com/300x200?text=Attendance+System",
             githubUrl: "#"
         },
         {
             id: "project4",
             name: "Examination Schedule Generator",
             description: "A comprehensive web application for generating, managing, and optimizing examination schedules for educational institutions.",
-            imageUrl: "https://via.placeholder.com/300x200?text=Exam+Schedule",
+            imageUrl: "https://via.placeholder.com/300x200?text=Exam+Schedule+Generator",
             githubUrl: "#"
         },
         {
             id: "project5",
             name: "RAG-Chat with Gemini 2",
             description: "This project demonstrates a Retrieval-Augmented Generation (RAG) chat application using: Google Generative AI (Gemini model via google.generativeai) LangChain (HuggingFaceEmbeddings, FAISS vector store, ConversationalRetrievalChain) Streamlit for a ChatGPT-like user interface",
-            imageUrl: "https://via.placeholder.com/300x200?text=RAG+Chat+Gemini",
+            imageUrl: "https://raw.githubusercontent.com/ifares-csi/ChatDocs/main/img.png",
             githubUrl: "https://github.com/ifares-csi/ChatDocs"
         },
         {
             id: "project6",
             name: "WebChat: Chat with Web Pages using DeepSeek R1 locally [Ollama]",
             description: "WebChat is an RAG-based web application that allows users to interact with web pages by summarizing their content and answering user queries using the Deepseek R1 language model. The app extracts textual content from a given URL, processes it into vector embeddings using FAISS, and retrieves relevant responses based on the user prompt.",
-            imageUrl: "https://via.placeholder.com/300x200?text=WebChat+DeepSeek",
+            imageUrl: "https://raw.githubusercontent.com/ifares-csi/WebChat/main/img.png",
             githubUrl: "https://github.com/ifares-csi/WebChat"
         },
         {
             id: "project7",
             name: "Chat With WebPage",
             description: "This project is a RAG application for chatting with Webpages that allows users to input a webpage URL and a custom query to retrieve response content using LangChain and OpenAI GPT-4o. The application processes webpage content, extracts relevant text, generates context-aware summaries, and answer the questions accodring the the content of the webpage.",
-            imageUrl: "https://via.placeholder.com/300x200?text=Chat+With+WebPage",
+            imageUrl: "https://raw.githubusercontent.com/ifares-csi/Chat-With-WebPage-Agent/main/img.png",
             githubUrl: "https://github.com/ifares-csi/Chat-With-WebPage-Agent"
         }
     ];
@@ -277,21 +277,21 @@ document.addEventListener('DOMContentLoaded', () => {
             const typeMatch = entry.match(/^(\w+){/);
             if (!typeMatch) return;
 
-            const type = typeMatch[1].toLowerCase();
             const content = entry.substring(entry.indexOf('{') + 1, entry.lastIndexOf('}'));
 
             const fields = {};
-            const regex = /(\w+)\s*=\s*{(.*?)}/g;
+            // Use a more robust regex to handle nested braces and different formatting
+            const regex = /\s*(\w+)\s*=\s*{(.*?[^\\])}/gs;
             let match;
             while ((match = regex.exec(content)) !== null) {
-                fields[match[1].toLowerCase()] = match[2].replace(/\\{|\\}/g, '').trim();
+                fields[match[1].toLowerCase()] = match[2].replace(/\n/g, ' ').replace(/\s+/g, ' ').trim();
             }
 
             let title = fields.title || 'No Title';
             let authors = fields.author || 'No Authors';
             let journal = fields.journal || fields.booktitle || 'No Journal/Booktitle';
             let year = fields.year || 'No Year';
-            let link = fields.url || fields.doi ? `https://doi.org/${fields.doi}` : '#'; // Prioritize DOI for link
+            let link = fields.url || (fields.doi ? `https://doi.org/${fields.doi}` : '#');
 
             // Format authors: Replace "Fares, Ibrahim A" with "<strong>Ibrahim A. Fares</strong>"
             authors = authors.split(' and ').map(author => {
@@ -300,7 +300,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     return `<strong>${parts[1]} ${parts[0]}</strong>`;
                 }
                 return author;
-            }).join(' and ');
+            }).join(', ');
 
 
             publications.push({ title, authors, journal, year, link });
@@ -325,10 +325,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Group publications by year (still useful for display structure)
             const publicationsByYear = parsedPublications.reduce((acc, pub) => {
-                if (!acc[pub.year]) {
-                    acc[pub.year] = [];
+                const year = pub.year || 'Forthcoming';
+                if (!acc[year]) {
+                    acc[year] = [];
                 }
-                acc[pub.year].push(pub);
+                acc[year].push(pub);
                 return acc;
             }, {});
 
@@ -342,10 +343,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 publicationsByYear[year].forEach(pub => {
                     htmlContent += `
                         <li>
-                            ${pub.authors},
+                            ${pub.authors}, 
                             <a href="${pub.link}" target="_blank">
-                                "${pub.title}"
-                            </a>,
+                                <em>"${pub.title}"</em>
+                            </a>, 
                             ${pub.journal}.
                         </li>
                     `;
