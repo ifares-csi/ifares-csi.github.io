@@ -1,0 +1,348 @@
+document.addEventListener('DOMContentLoaded', () => {
+    // Typing Animation for Hero Section
+    const typingElement = document.querySelector('.typing-animation');
+    const phrases = [
+        "AI & Machine Learning Researcher",
+        "Deep Learning Enthusiast",
+        "Cybersecurity Expert",
+        "Educator & Innovator"
+    ];
+    let phraseIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+
+    function type() {
+        const currentPhrase = phrases[phraseIndex];
+        if (isDeleting) {
+            typingElement.textContent = currentPhrase.substring(0, charIndex - 1);
+            charIndex--;
+        } else {
+            typingElement.textContent = currentPhrase.substring(0, charIndex + 1);
+            charIndex++;
+        }
+
+        if (!isDeleting && charIndex === currentPhrase.length) {
+            setTimeout(() => isDeleting = true, 1500);
+        } else if (isDeleting && charIndex === 0) {
+            isDeleting = false;
+            phraseIndex = (phraseIndex + 1) % phrases.length;
+        }
+
+        const typeSpeed = isDeleting ? 50 : 100;
+        setTimeout(type, typeSpeed);
+    }
+    type();
+
+    // Sticky Navbar and Active Section Highlighting
+    const navbar = document.querySelector('.navbar');
+    const navLinks = document.querySelectorAll('.nav-links a');
+    const sections = document.querySelectorAll('section');
+
+    function updateNavbar() {
+        if (window.scrollY > 50) {
+            navbar.classList.add('sticky');
+        } else {
+            navbar.classList.remove('sticky');
+        }
+
+        let currentActive = '';
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop - navbar.offsetHeight - 20; // Adjust for navbar height
+            const sectionHeight = section.clientHeight;
+            if (pageYOffset >= sectionTop && pageYOffset < sectionTop + sectionHeight) {
+                currentActive = section.getAttribute('id');
+            }
+        });
+
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href').includes(currentActive)) {
+                link.classList.add('active');
+            }
+        });
+    }
+
+    window.addEventListener('scroll', updateNavbar);
+    updateNavbar(); // Initial call to set sticky and active state on load
+
+    // Smooth Scrolling for Navigation Links
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href').substring(1);
+            const targetSection = document.getElementById(targetId);
+            window.scrollTo({
+                top: targetSection.offsetTop - navbar.offsetHeight, // Adjust for fixed navbar
+                behavior: 'smooth'
+            });
+        });
+    });
+
+    // Scroll-triggered Reveal Effects
+    const revealElements = document.querySelectorAll('.reveal');
+
+    function revealOnScroll() {
+        revealElements.forEach(element => {
+            const elementTop = element.getBoundingClientRect().top;
+            const viewportHeight = window.innerHeight;
+
+            if (elementTop < viewportHeight - 100) { // Adjust 100px as needed
+                element.classList.add('active');
+            } else {
+                element.classList.remove('active'); // Optional: remove active class when scrolling up
+            }
+        });
+    }
+
+    window.addEventListener('scroll', revealOnScroll);
+    revealOnScroll(); // Initial check on load
+
+    // Project Modals
+    const projectCardsContainer = document.querySelector('.project-grid');
+    const modal = document.getElementById('project-modal');
+    const closeModal = document.querySelector('.close-button');
+    const modalTitle = document.getElementById('modal-title');
+    const modalImage = document.getElementById('modal-image');
+    const modalDescription = document.getElementById('modal-description');
+    const modalLink = document.getElementById('modal-link');
+
+    // --- GitHub Projects Integration (Client-side limitations) ---
+    // Directly fetching from GitHub API (e.g., https://api.github.com/users/ifares-csi/repos) 
+    // from client-side JavaScript is subject to CORS restrictions and API rate limits.
+    // For a production-ready solution, you would typically use a server-side proxy
+    // to fetch data from GitHub and then serve it to your frontend.
+    // For this demo, we'll use a hardcoded list of projects.
+
+    const githubProjects = [
+        {
+            id: "project1",
+            name: "CKAN: Convolutional Kolmogorov–Arnold Networks",
+            description: "Implementing CNN model by Using KAN (Kolmogorov-Arnold Networks) for Intrusion Detection in IoT Environment. Published in IEEE Access, 2024.",
+            imageUrl: "https://via.placeholder.com/300x200?text=CKAN+Project", // Placeholder image
+            githubUrl: "https://github.com/ifares-csi/CKAN"
+        },
+        {
+            id: "project2",
+            name: "AI-Powered Intrusion Detection System",
+            description: "Developed a novel AI model for real-time intrusion detection in IoT networks, achieving high accuracy and low false positive rates. Utilized deep learning and optimization algorithms.",
+            imageUrl: "https://via.placeholder.com/300x200?text=IDS+Project",
+            githubUrl: "https://github.com/ifares-csi/AI-IDS-Project" // Example URL
+        },
+        {
+            id: "project3",
+            name: "LLM Fine-tuning for Medical Diagnosis",
+            description: "Fine-tuned a large language model on medical datasets to assist in preliminary diagnosis and information retrieval for healthcare professionals.",
+            imageUrl: "https://via.placeholder.com/300x200?text=LLM+Medical",
+            githubUrl: "https://github.com/ifares-csi/LLM-Medical-Diagnosis" // Example URL
+        },
+        {
+            id: "project4",
+            name: "Federated Learning for Data Privacy",
+            description: "Implemented a federated learning framework to train machine learning models on decentralized datasets, ensuring data privacy and security.",
+            imageUrl: "https://via.placeholder.com/300x200?text=Federated+Learning",
+            githubUrl: "https://github.com/ifares-csi/Federated-Learning-Privacy" // Example URL
+        },
+        {
+            id: "project5",
+            name: "Cybersecurity Threat Intelligence Platform",
+            description: "Built a platform to aggregate and analyze cybersecurity threat intelligence from various sources, providing actionable insights.",
+            imageUrl: "https://via.placeholder.com/300x200?text=Threat+Intel",
+            githubUrl: "https://github.com/ifares-csi/Threat-Intelligence-Platform" // Example URL
+        },
+        {
+            id: "project6",
+            name: "Gorilla Troops Optimizer",
+            description: "Implementation of the Gorilla Troops Optimizer algorithm, a metaheuristic optimization algorithm inspired by the social behavior of gorillas.",
+            imageUrl: "https://via.placeholder.com/300x200?text=Gorilla+Optimizer",
+            githubUrl: "https://github.com/ifares-csi/gorilla-troops-optimizer"
+        }
+    ];
+
+    function renderProjects() {
+        projectCardsContainer.innerHTML = ''; // Clear existing placeholders
+        githubProjects.forEach(project => {
+            const cardHtml = `
+                <div class="project-card" data-project-id="${project.id}">
+                    <img src="${project.imageUrl}" alt="${project.name} Thumbnail">
+                    <h3>${project.name}</h3>
+                    <p>${project.description.substring(0, 100)}...</p>
+                    <div class="project-overlay">
+                        <button class="view-details-btn">View Details</button>
+                    </div>
+                </div>
+            `;
+            projectCardsContainer.insertAdjacentHTML('beforeend', cardHtml);
+        });
+
+        // Re-attach event listeners after rendering new cards
+        document.querySelectorAll('.project-card').forEach(card => {
+            card.addEventListener('click', () => {
+                const projectId = card.dataset.projectId;
+                const details = githubProjects.find(p => p.id === projectId);
+
+                if (details) {
+                    modalTitle.textContent = details.name;
+                    modalImage.src = details.imageUrl;
+                    modalDescription.textContent = details.description;
+                    modalLink.href = details.githubUrl;
+                    modal.style.display = 'flex';
+                }
+            });
+        });
+    }
+
+    renderProjects();
+
+    closeModal.addEventListener('click', () => {
+        modal.style.display = 'none';
+    });
+
+    window.addEventListener('click', (event) => {
+        if (event.target === modal) {
+            modal.style.display = 'none';
+        }
+    });
+
+    // Contact Form Validation and Animations
+    const contactForm = document.querySelector('.contact-form');
+    const formInputs = contactForm.querySelectorAll('input, textarea');
+
+    formInputs.forEach(input => {
+        input.addEventListener('focus', () => {
+            input.parentNode.classList.add('focused');
+        });
+        input.addEventListener('blur', () => {
+            if (input.value === '') {
+                input.parentNode.classList.remove('focused');
+            }
+        });
+        // For pre-filled inputs (e.g., browser autofill)
+        if (input.value !== '') {
+            input.parentNode.classList.add('focused');
+        }
+    });
+
+    contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        let isValid = true;
+        formInputs.forEach(input => {
+            if (!input.checkValidity()) {
+                isValid = false;
+                input.parentNode.classList.add('invalid');
+            } else {
+                input.parentNode.classList.remove('invalid');
+            }
+        });
+
+        if (isValid) {
+            alert('Message sent successfully! (This is a demo. Form submission is not active.)');
+            contactForm.reset();
+            formInputs.forEach(input => {
+                input.parentNode.classList.remove('focused');
+            });
+        } else {
+            alert('Please fill in all required fields correctly.');
+        }
+    });
+
+    // Google Scholar Publications Fetching from publications.txt
+    // IMPORTANT: Due to browser security (CORS), fetching local files directly
+    // from 'file://' URLs is usually blocked. To make this work, you need to
+    // serve your portfolio using a local web server (e.g., Python's http.server).
+    // Example: cd /home/ifares/portofilo && python3 -m http.server 8000
+    // Then open http://localhost:8000 in your browser.
+
+    function parseBibtex(bibtexString) {
+        const publications = [];
+        const entries = bibtexString.split('@').filter(entry => entry.trim() !== '');
+
+        entries.forEach(entry => {
+            const typeMatch = entry.match(/^(\w+){/);
+            if (!typeMatch) return;
+
+            const type = typeMatch[1].toLowerCase();
+            const content = entry.substring(entry.indexOf('{') + 1, entry.lastIndexOf('}'));
+
+            const fields = {};
+            const regex = /(\w+)\s*=\s*{(.*?)}/g;
+            let match;
+            while ((match = regex.exec(content)) !== null) {
+                fields[match[1].toLowerCase()] = match[2].replace(/\\{|\\}/g, '').trim();
+            }
+
+            let title = fields.title || 'No Title';
+            let authors = fields.author || 'No Authors';
+            let journal = fields.journal || fields.booktitle || 'No Journal/Booktitle';
+            let year = fields.year || 'No Year';
+            let link = fields.url || fields.doi ? `https://doi.org/${fields.doi}` : '#'; // Prioritize DOI for link
+
+            // Format authors: Replace "Fares, Ibrahim A" with "<strong>Ibrahim A. Fares</strong>"
+            authors = authors.split(' and ').map(author => {
+                if (author.includes('Fares, Ibrahim A') || author.includes('Fares, Ibrahim Ahmed') || author.includes('Fares, Issam')) {
+                    const parts = author.split(',').map(p => p.trim());
+                    return `<strong>${parts[1]} ${parts[0]}</strong>`;
+                }
+                return author;
+            }).join(' and ');
+
+
+            publications.push({ title, authors, journal, year, link });
+        });
+        return publications;
+    }
+
+    async function updatePublications() {
+        const publicationsContainer = document.getElementById('scholar-publications');
+        publicationsContainer.innerHTML = 'Loading publications...';
+
+        try {
+            const response = await fetch('publications.txt');
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            const bibtexContent = await response.text();
+            let parsedPublications = parseBibtex(bibtexContent);
+
+            // Reverse the order of publications as they appear in the file
+            parsedPublications.reverse();
+
+            // Group publications by year (still useful for display structure)
+            const publicationsByYear = parsedPublications.reduce((acc, pub) => {
+                if (!acc[pub.year]) {
+                    acc[pub.year] = [];
+                }
+                acc[pub.year].push(pub);
+                return acc;
+            }, {});
+
+            let htmlContent = '';
+            // Sort years in descending order for display, but publications within year are reversed from the file
+            const sortedYears = Object.keys(publicationsByYear).sort((a, b) => b - a);
+
+            sortedYears.forEach(year => {
+                htmlContent += `<div class="year-container"><h3>${year}</h3><ol>`;
+                // Publications within each year are already in the desired reversed order from the file
+                publicationsByYear[year].forEach(pub => {
+                    htmlContent += `
+                        <li>
+                            ${pub.authors},
+                            <a href="${pub.link}" target="_blank">
+                                "${pub.title}"
+                            </a>,
+                            ${pub.journal}.
+                        </li>
+                    `;
+                });
+                htmlContent += `</ol></div>`;
+            });
+
+            publicationsContainer.innerHTML = htmlContent;
+
+        } catch (error) {
+            console.error('Error fetching or parsing publications:', error);
+            publicationsContainer.innerHTML = '<p>Failed to load publications. Please ensure you are serving the site via a web server (e.g., `python3 -m http.server`) and that `publications.txt` is in the same directory.</p>';
+        }
+    }
+
+    updatePublications();
+});

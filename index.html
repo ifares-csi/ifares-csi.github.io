@@ -4,36 +4,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ibrahim A. Fares - AI & Machine Learning Portfolio</title>
+    <title>Ibrahim A. Fares - Modern Portfolio</title>
     <link rel="stylesheet" href="style.css">
-    <script src="scholar.js"></script>
 </head>
 
 <body>
-    <header>
+    <nav class="navbar">
         <div class="container">
+            <a href="#hero" class="logo">Ibrahim A. Fares</a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#publications">Publications</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="hero" class="hero-section">
+        <div class="hero-content">
             <h1>Ibrahim A. Fares</h1>
-            <p>PhD in Artificial Intelligence & Machine Learning</p>
-            <div class="contact-info">
-                <p>Email: <a href="mailto:ibrahimfares@science.zu.edu.eg" style="color: white;">ibrahimfares@science.zu.edu.eg</a> | <a href="mailto:ifares.cs@gmail.com" style="color: white;">ifares.cs@gmail.com</a></p> ||
-                <p>Phone: (+20) 01014399619</p>
-                <p>Location: Zagazig, Egypt</p>
-            </div>
-            <div>
-                <a href="https://scholar.google.com/citations?user=G33DEsgAAAAJ" target="_blank" class="btn">Google
-                    Scholar</a>
-                <a href="ML Postdoc researcher-Ibrahim Fares.pdf" target="_blank" class="btn btn-download" download>Download CV</a>
+            <p class="typing-animation"></p>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn primary-btn">Get in Touch</a>
+                <a href="ML Postdoc researcher-Ibrahim Fares.pdf" target="_blank" class="btn secondary-btn"
+                    download>Download CV</a>
             </div>
         </div>
-    </header>
+    </section>
 
-    <div class="container">
-        <section id="summary">
-            <h2>Professional Summary</h2>
-            <p>Experienced researcher and educator in Artificial Intelligence, Machine Learning, and Cybersecurity. Strong publication record, international collaboration, and a passion for advancing science and student success. Seeking postdoctoral and lecturer (assistant professor) roles globally.</p>
-        </section>
-        <section id="about">
-            <h2>Research Experience</h2>
+    <main class="container">
+        <section id="about" class="reveal">
+            <h2>About Me</h2>
+            <p>Experienced researcher and educator in Artificial Intelligence, Machine Learning, and Cybersecurity.
+                Strong publication record, international collaboration, and a passion for advancing science and student
+                success. Seeking postdoctoral and lecturer (assistant professor) roles globally.</p>
+            <h3>Research Interests</h3>
             <div class="research-grid">
                 <div class="research-column">
                     <ul>
@@ -56,16 +65,18 @@
             </div>
         </section>
 
-        <section id="education">
+        <section id="education" class="reveal">
             <h2>Education</h2>
             <div class="education-item">
                 <h4>PhD in Optimizing ML for Cybersecurity</h4>
-                <div class="thesis-title">Thesis: Cyber Security Threats Detection in Internet of Things Based on Optimization Algorithms</div>
+                <div class="thesis-title">Thesis: Cyber Security Threats Detection in Internet of Things Based on
+                    Optimization Algorithms</div>
                 <div class="date">Zagazig University, Egypt (2021-2024)</div>
             </div>
             <div class="education-item">
                 <h4>Master's in Using Optimization algorithms for IoT application</h4>
-                <div class="thesis-title">Thesis: Bio-Inspired Algorithms for Optimizing Dynamic Noisy Environment in Smart Cities</div>
+                <div class="thesis-title">Thesis: Bio-Inspired Algorithms for Optimizing Dynamic Noisy Environment in
+                    Smart Cities</div>
                 <div class="date">Zagazig University, Egypt (2018-2020)</div>
             </div>
             <div class="education-item">
@@ -74,7 +85,7 @@
             </div>
         </section>
 
-        <section id="experience">
+        <section id="experience" class="reveal">
             <h2>Academic Experience</h2>
             <div class="experience-item">
                 <h4>Lecturer</h4>
@@ -124,128 +135,95 @@
             </div>
         </section>
 
-        <section id="research-statement">
-            <h2>Research Statement</h2>
-            <p>My current research centers on fine-tuning large language models (LLMs) for a wide range of tasks, including natural language understanding, cybersecurity, and domain-specific applications. I am passionate about advancing the state-of-the-art in LLM adaptation, prompt engineering, and multimodal integration to solve real-world problems. My work aims to make AI systems more robust, interpretable, and impactful across disciplines. I am committed to interdisciplinary collaboration and to bridging the gap between foundational AI research and practical deployment in diverse environments.</p>
-        </section>
-        <section id="teaching-statement">
-            <h2>Teaching Statement</h2>
-            <p>I believe in student-centered, inclusive teaching that fosters critical thinking and practical skills. I use active learning, real-world projects, and mentorship to empower students for academic and professional success. I am dedicated to curriculum innovation and lifelong learning.</p>
-        </section>
-        <!-- <section id="awards-grants">
-            <h2>Awards, Grants, and Honors</h2>
-            <ul>
-                <li>Best Paper Award, International Conference on Innovative Computing (2023)</li>
-                <li>PhD Scholarship, Ministry of Higher Education, Egypt (2021-2024)</li>
-                <li>Travel Grant, IEEE Conference on AI (2022)</li>
-            </ul>
-        </section> -->
-        <section id="service-leadership">
-            <h2>Service & Leadership</h2>
-            <ul>
-                <li>Reviewer for Information Fusion, IEEE Access, Knowledge-Based Systems, Egyptian Informatics Journal, and other journals</li>
-                <!-- <li>Session Chair, International Conference on Machine Learning (2023)</li> -->
-                <li>Mentor for undergraduate research projects</li>
-            </ul>
-        </section>
-        <section id="international-experience">
-            <h2>International Experience & Collaboration</h2>
-            <ul>
-                <li>Collaborated with researchers from Saudi Arabia, China, and Europe on joint publications</li>
-                <!-- <li>Presented at international conferences in Europe and Asia</li> -->
-            </ul>
-        </section>
-        <section id="diversity-inclusion">
-            <h2>Diversity & Inclusion</h2>
-            <p>I am committed to fostering diversity, equity, and inclusion in research and teaching. I strive to create a welcoming environment for students and colleagues from all backgrounds and to promote global perspectives in science and education.</p>
-        </section>
-        <section id="publications">
-            <h2>Publications</h2>
-            <div class="publications-container">
-
-                <p><em>The following papers represent work where I was the primary researcher and conducted the majority of the research independently.</em></p>
-
-
-
-                <div class="year-container">
-                    <h3>2025</h3>
-                    <ol>
-                        <li><strong>Ibrahim A. Fares</strong> and M. Abd Elaziz, <em>
-                            "<a href="https://doi.org/10.1016/j.knosys.2025.113351" target="_blank">
-                                Explainable TabNet Transformer-Based on Google Vizier Optimizer for Anomaly Intrusion Detection System
-                            </a>,"
-                        </em> Knowledge-Based Systems (Q1), May 2025, Vol. 316, 113351, doi: 10.1016/j.knosys.2025.113351.</li>
-                        <li><strong>Ibrahim A. Fares</strong>, A. G. Abdellatif, M. Abd Elaziz, M. Shrahili, A. Elmahallawy, R. M. Sohaib, M. A. Shawky, and S. T. Shah, <em>"Deep Transfer Learning based on Hybrid Swin Transformers with LSTM for Intrusion Detection Systems in IoT Environment,"</em>                            
-                            IEEE Open Journal of the Communications Society (Q1), 2025, Accepted.
-                        </li>
-                        <li><strong>Ibrahim A. Fares</strong>, M. Abd Elaziz, A. O. Aseeri, H. S. Zied, and A. G. Abdellatif, 
-                            <em>
-                                "<a href="https://doi.org/10.1016/j.eij.2025.100666" target="_blank">
-                                TFKAN: Transformer Based on Kolmogorov–Arnold Networks for Intrusion Detection in IoT environment,
-                                </a>"
-                            </em> Egyptian InformaticsJournal (Q1), June 2025, Vol 30, 100666, doi: 10.1016/j.eij.2025.100666.
-                        </li>
-                        <li><strong>Ibrahim A. Fares</strong>, M. Abd Elaziz, A. Dahou, and M. Shrahili, <em>"Federated Learning Framework for IoT Intrusion Detection Using Tab Transformer and Nature-Inspired Hyper-Parameter Optimization,"</em> Frontiers
-                            in Big Data (Q2), 2025, Accepted.</li>
-                        <li><strong>Ibrahim A. Fares</strong> et al., <em>"Diagnosing Autism Spectrum Disorder Based on Modified Deep Learning and Feature Selection Technique,"</em> Frontiers in Artificial Intelligence (Q2), Under Review.</li>
-                    </ol>
+        <section id="projects" class="reveal">
+            <h2>My Projects</h2>
+            <div class="project-grid">
+                <!-- Project Card 1 -->
+                <div class="project-card" data-project-id="project1">
+                    <img src="https://via.placeholder.com/300x200?text=Project+1" alt="Project 1 Thumbnail">
+                    <h3>Project Title 1</h3>
+                    <p>Short description of Project 1. Click to learn more.</p>
+                    <div class="project-overlay">
+                        <button class="view-details-btn">View Details</button>
+                    </div>
                 </div>
-
-                <div class="year-container">
-                    <h3>2024</h3>
-                    <ol>
-                        <li>M. Abd Elaziz, <strong>Ibrahim A. Fares</strong> and A. O. Aseeri, <em>"<a href="https://ieeexplore.ieee.org/document/10681070" target="_blank">CKAN: Convolutional Kolmogorov–Arnold Networks for IoT Intrusion Detection</a>,"</em>                            IEEE Access (Q2), vol. 12, pp. 134837-134851, 2024, doi: 10.1109/ACCESS.2024.3462297.</li>
-                        <li><strong>Ibrahim A. Fares</strong> and M. Abd Elaziz, <em>"FT Transformer for Intrusion Detection System in IoT,"</em> Bulletin of Faculty of Science, Zagazig University, 2023, Accepted.</li>
-                        
-                    </ol>
+                <!-- Project Card 2 -->
+                <div class="project-card" data-project-id="project2">
+                    <img src="https://via.placeholder.com/300x200?text=Project+2" alt="Project 2 Thumbnail">
+                    <h3>Project Title 2</h3>
+                    <p>Short description of Project 2. Click to learn more.</p>
+                    <div class="project-overlay">
+                        <button class="view-details-btn">View Details</button>
+                    </div>
                 </div>
-
-                <div class="year-container">
-                    <h3>2023</h3>
-                    <ol>
-                        <li><strong>Ibrahim A. Fares</strong>, Aboul Ella Hassanien, Rizk M. Rizk-Allah, Roushdy Mohamed Farouk and Hassan Mostafa Abo-donia, <em>"<a href="https://www.inderscienceonline.com/doi/abs/10.1504/IJCSM.2023.130420" target="_blank">Solving Capacitated Vehicle Routing Problem with Route Optimisation Based on Equilibrium Optimiser Algorithm</a>,"</em>                            International Journal of Computing and Mathematics, Jan 2023.</li>
-                    </ol>
-                </div>
-
-                <div class="year-container">
-                    <h3>2020</h3>
-                    <ol>
-                        <li><strong>Ibrahim A. Fares</strong>, Rizk M. Rizk-Allah, Aboul Ella Hassanien & Snasel Vaclav, <em>"<a href="https://link.springer.com/chapter/10.1007/978-981-15-1286-5_77" target="_blank">Multiple Cyclic Swarming Optimization for Uni- and Multi-modal Functions</a>,"</em>                            International Conference on Innovative Computing and Communications, Jan 2020.</li>
-                    </ol>
+                <!-- Project Card 3 -->
+                <div class="project-card" data-project-id="project3">
+                    <img src="https://via.placeholder.com/300x200?text=Project+3" alt="Project 3 Thumbnail">
+                    <h3>Project Title 3</h3>
+                    <p>Short description of Project 3. Click to learn more.</p>
+                    <div class="project-overlay">
+                        <button class="view-details-btn">View Details</button>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section id="skills">
+        <section id="publications" class="reveal">
+            <h2>Publications</h2>
+            <div class="publications-container">
+                <!-- <p><em>The following papers represent work where I was the primary researcher and conducted the majority of the research independently.</em></p> -->
+                <div id="scholar-publications">
+                    <!-- Publications will be loaded here by JavaScript -->
+                    Loading publications...
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="reveal">
             <h2>Technical Skills</h2>
             <div class="skills-grid">
                 <div class="skill-card">
-                    <strong>AI & ML</strong>: Machine Learning, RAG, LoRA, Quantization, AI Agents, Deep Learning, NLP, Transformers, GenAI, LLMs, LLM Fine-tuning
+                    <strong>AI & ML</strong> Machine Learning, RAG, LoRA, Quantization, AI Agents, Deep Learning, NLP,
+                    Transformers, GenAI, LLMs, LLM Fine-tuning
                 </div>
                 <div class="skill-card">
-                    <strong>Programming</strong>: Python, C, C++, C#, dot Net, Java, MATLAB, R
+                    <strong>Programming</strong> Python, C, C++, C#, dot Net, Java, MATLAB, R
                 </div>
                 <div class="skill-card">
-                    <strong>Data</strong>: SQL, MySQL, NoSQL, Database Management
+                    <strong>Data</strong> SQL, MySQL, NoSQL, Database Management
                 </div>
                 <div class="skill-card">
-                    <strong>Web</strong>: HTML, CSS, JavaScript, DevOps
+                    <strong>Web</strong> HTML, CSS, JavaScript, DevOps
                 </div>
-                <!-- <div class="skill-card">
-                    <strong>Specializations</strong>: Optimization Algorithms, Cybersecurity, IoT
-                </div> -->
             </div>
         </section>
 
-        <section id="references">
-            <h2>References</h2>
-            <ul>
-                <li><strong><a href="https://scholar.google.com/citations?user=70I7KMIAAAAJ&hl=en" target="_blank">Prof. Dr. Mohamed Abd Elaziz</a></strong> (PhD Supervisor) - Email: <a href="mailto:abd_el_aziz_m@yahoo.com">abd_el_aziz_m@yahoo.com</a></li>
-                <li><strong><a href="https://scholar.google.com/citations?user=knMcKpIAAAAJ&hl=en" target="_blank">Prof. Dr. A.M. Elsawah</a></strong> - Email: <a href="mailto:amelsawah@uic.edu.cn">amelsawah@uic.edu.cn</a></li>
-                <li><strong>Dr. Mohamed Abdelrahim</strong> - Email: <a href="mailto:mohamed.abdelrahim@ugent.be">mohamed.abdelrahim@ugent.be</a></li>
-            </ul>
+        <section id="contact" class="reveal">
+            <h2>Contact Me</h2>
+            <p>I'm always open to discussing new projects, collaborations, or opportunities. Feel free to reach out!</p>
+            <form class="contact-form">
+                <div class="form-group">
+                    <input type="text" id="name" name="name" required>
+                    <label for="name">Your Name</label>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="email" name="email" required>
+                    <label for="email">Your Email</label>
+                </div>
+                <div class="form-group">
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                    <label for="message">Your Message</label>
+                </div>
+                <button type="submit" class="btn primary-btn">Send Message</button>
+            </form>
+            <div class="contact-info-bottom">
+                <p>Email: <a href="mailto:ibrahimfares@science.zu.edu.eg">ibrahimfares@science.zu.edu.eg</a> | <a
+                        href="mailto:ifares.cs@gmail.com">ifares.cs@gmail.com</a></p>
+                <p>Phone: (+20) 01014399619</p>
+                <p>Location: Zagazig, Egypt</p>
+            </div>
         </section>
-    </div>
+    </main>
 
     <footer>
         <div class="container">
@@ -253,15 +231,18 @@
         </div>
     </footer>
 
-    <script>
-        document.getElementById('download-pdf').addEventListener('click', function(e) {
-            e.preventDefault();
-            alert('PDF download functionality would be implemented here with a server-side PDF generation service.');
-            // In a real implementation, this would call a server endpoint that generates a PDF
-            // window.location.href = '/generate-pdf';
-        });
-    </script>
-    <script src="viscounter.js"></script>
+    <!-- Project Modals -->
+    <div id="project-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h3 id="modal-title"></h3>
+            <img id="modal-image" src="" alt="Project Image">
+            <p id="modal-description"></p>
+            <a id="modal-link" href="#" target="_blank" class="btn primary-btn">View Project</a>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 
 </html>
