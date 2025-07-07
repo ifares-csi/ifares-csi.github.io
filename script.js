@@ -262,7 +262,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    """    // Google Scholar Publications Fetching from publications.txt
+    // Google Scholar Publications Fetching from publications.txt
     // IMPORTANT: Due to browser security (CORS), fetching local files directly
     // from 'file://' URLs is usually blocked. To make this work, you need to
     // serve your portfolio using a local web server (e.g., Python's http.server).
@@ -356,5 +356,5 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    updatePublications();""
+    updatePublications();
 });
