@@ -2,9 +2,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // Typing Animation for Hero Section
     const typingElement = document.querySelector('.typing-animation');
     const phrases = [
-        "AI & Machine Learning Researcher",
-        "Deep Learning Enthusiast",
-        "Cybersecurity Expert",
+        "Assistant Professor",
+        "Machine Learning Researcher",
+        "Deep Learning & NLP Expert",
+        "Cybersecurity Specialist",
         "Educator & Innovator"
     ];
     let phraseIndex = 0;
@@ -32,6 +33,23 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(type, typeSpeed);
     }
     type();
+
+    // Mobile Menu Toggle
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinksContainer = document.querySelector('.nav-links');
+
+    if (menuToggle) {
+        menuToggle.addEventListener('click', () => {
+            navLinksContainer.classList.toggle('active');
+        });
+
+        // Close menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinksContainer.classList.remove('active');
+            });
+        });
+    }
 
     // Sticky Navbar and Active Section Highlighting
     const navbar = document.querySelector('.navbar');
@@ -67,7 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Smooth Scrolling for Navigation Links
     navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
+        link.addEventListener('click', function (e) {
             e.preventDefault();
             const targetId = this.getAttribute('href').substring(1);
             const targetSection = document.getElementById(targetId);
@@ -111,54 +129,54 @@ document.addEventListener('DOMContentLoaded', () => {
     const projectCardsContainer = document.querySelector('.project-grid');
 
     const githubProjects = [{
-            id: "project1",
-            name: "CKAN: Convolutional Kolmogorov–Arnold Networks",
-            description: "Implementing CNN model by Using KAN (Kolmogorov-Arnold Networks). IEEE Document Reference: Title: CKAN: Convolutional Kolmogorov–Arnold Networks Model for Intrusion Detection in IoT Environment. Authors: Mohamed Abd Elaziz; Ibrahim Ahmed Fares; Ahmad O. Aseeri. Publication: IEEE Access. Year: 2024. DOI: 10.1109/ACCESS.2024.3462297",
-            imageUrl: "porject_images/ckan.jpg",
-            githubUrl: "https://github.com/ifares-csi/CKAN"
-        },
-        {
-            id: "project2",
-            name: "TFKAN",
-            description: "Building New Transformer based on KAN: Kolmogorov-Arnold Networks",
-            imageUrl: "porject_images/tfkan.jpg",
-            githubUrl: "https://github.com/ifares-csi/TFKAN"
-        },
-        {
-            id: "project3",
-            name: "Attendance-System",
-            description: "this project for auto taking absence of students in lecture based on GPS also it have online test for students enrolled to your subjects",
-            imageUrl: "porject_images/attendace.jpg",
-            githubUrl: "#"
-        },
-        {
-            id: "project4",
-            name: "Examination Schedule Generator",
-            description: "A comprehensive web application for generating, managing, and optimizing examination schedules for educational institutions.",
-            imageUrl: "porject_images/exam sc generator.jpg",
-            githubUrl: "#"
-        },
-        {
-            id: "project5",
-            name: "RAG-Chat with Gemini 2",
-            description: "This project demonstrates a Retrieval-Augmented Generation (RAG) chat application using: Google Generative AI (Gemini model via google.generativeai) LangChain (HuggingFaceEmbeddings, FAISS vector store, ConversationalRetrievalChain) Streamlit for a ChatGPT-like user interface",
-            imageUrl: "porject_images/RAG-Chat with Gemini2.jpg",
-            githubUrl: "https://github.com/ifares-csi/ChatDocs"
-        },
-        {
-            id: "project6",
-            name: "WebChat: Chat with Web Pages using DeepSeek R1 locally [Ollama]",
-            description: "WebChat is an RAG-based web application that allows users to interact with web pages by summarizing their content and answering user queries using the Deepseek R1 language model. The app extracts textual content from a given URL, processes it into vector embeddings using FAISS, and retrieves relevant responses based on the user prompt.",
-            imageUrl: "porject_images/WebChat.png",
-            githubUrl: "https://github.com/ifares-csi/WebChat"
-        },
-        {
-            id: "project7",
-            name: "Chat With WebPage",
-            description: "This project is a RAG application for chatting with Webpages that allows users to input a webpage URL and a custom query to retrieve response content using LangChain and OpenAI GPT-4o. The application processes webpage content, extracts relevant text, generates context-aware summaries, and answer the questions accodring the the content of the webpage.",
-            imageUrl: "porject_images/chat with web.jpg",
-            githubUrl: "https://github.com/ifares-csi/Chat-With-WebPage-Agent"
-        }
+        id: "project1",
+        name: "CKAN: Convolutional Kolmogorov–Arnold Networks",
+        description: "Implementing CNN model by Using KAN (Kolmogorov-Arnold Networks). IEEE Document Reference: Title: CKAN: Convolutional Kolmogorov–Arnold Networks Model for Intrusion Detection in IoT Environment. Authors: Mohamed Abd Elaziz; Ibrahim Ahmed Fares; Ahmad O. Aseeri. Publication: IEEE Access. Year: 2024. DOI: 10.1109/ACCESS.2024.3462297",
+        imageUrl: "porject_images/ckan.jpg",
+        githubUrl: "https://github.com/ifares-csi/CKAN"
+    },
+    {
+        id: "project2",
+        name: "TFKAN",
+        description: "Building New Transformer based on KAN: Kolmogorov-Arnold Networks",
+        imageUrl: "porject_images/tfkan.jpg",
+        githubUrl: "https://github.com/ifares-csi/TFKAN"
+    },
+    {
+        id: "project3",
+        name: "Attendance-System",
+        description: "this project for auto taking absence of students in lecture based on GPS also it have online test for students enrolled to your subjects",
+        imageUrl: "porject_images/attendace.jpg",
+        githubUrl: "#"
+    },
+    {
+        id: "project4",
+        name: "Examination Schedule Generator",
+        description: "A comprehensive web application for generating, managing, and optimizing examination schedules for educational institutions.",
+        imageUrl: "porject_images/exam sc generator.jpg",
+        githubUrl: "#"
+    },
+    {
+        id: "project5",
+        name: "RAG-Chat with Gemini 2",
+        description: "This project demonstrates a Retrieval-Augmented Generation (RAG) chat application using: Google Generative AI (Gemini model via google.generativeai) LangChain (HuggingFaceEmbeddings, FAISS vector store, ConversationalRetrievalChain) Streamlit for a ChatGPT-like user interface",
+        imageUrl: "porject_images/RAG-Chat with Gemini2.jpg",
+        githubUrl: "https://github.com/ifares-csi/ChatDocs"
+    },
+    {
+        id: "project6",
+        name: "WebChat: Chat with Web Pages using DeepSeek R1 locally [Ollama]",
+        description: "WebChat is an RAG-based web application that allows users to interact with web pages by summarizing their content and answering user queries using the Deepseek R1 language model. The app extracts textual content from a given URL, processes it into vector embeddings using FAISS, and retrieves relevant responses based on the user prompt.",
+        imageUrl: "porject_images/WebChat.png",
+        githubUrl: "https://github.com/ifares-csi/WebChat"
+    },
+    {
+        id: "project7",
+        name: "Chat With WebPage",
+        description: "This project is a RAG application for chatting with Webpages that allows users to input a webpage URL and a custom query to retrieve response content using LangChain and OpenAI GPT-4o. The application processes webpage content, extracts relevant text, generates context-aware summaries, and answer the questions accodring the the content of the webpage.",
+        imageUrl: "porject_images/chat with web.jpg",
+        githubUrl: "https://github.com/ifares-csi/Chat-With-WebPage-Agent"
+    }
     ];
 
     function renderProjects() {
@@ -223,36 +241,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Publications data is now embedded directly to avoid CORS issues.
     const bibtexContent = `
-@article{fares2020multiple,
-  title={Multiple cyclic swarming optimization for uni-and multi-modal functions},
-  author={Fares, Ibrahim and Rizk-Allah, Rizk M and Hassanien, Aboul Ella and Vaclav, Snasel},
-  booktitle={International Conference on Innovative Computing and Communications: Proceedings of ICICC 2019, Volume 1},
-  pages={887--898},
-  year={2020},
-  organization={Springer Singapore}
+@article{seyam2026forecasting,
+  title={Forecasting Temperature Data for Two Counties in California Using the Stress–Strength Reliability of the MO q-GEVL Distribution: A Return Level Based Approach and Time Series},
+  author={Seyam, Eslam Abdelhakim and Sadk, Shimaa Wasfy and Fares, Ibrahim A and Attwa, Rasha Abd El-Wahab},
+  journal={Scientific African},
+  volume={31},
+  pages={e03207},
+  year={2026},
+  publisher={Elsevier}
 }
 
-@article{fares2023solving,
-  title={Solving capacitated vehicle routing problem with route optimisation based on equilibrium optimiser algorithm},
-  author={Fares, Ibrahim and Hassanien, Aboul Ella and Rizk-Allah, Rizk M and Farouk, Roushdy Mohamed and Abo-donia, Hassan Mostafa},
-  journal={International Journal of Computing Science and Mathematics},
-  volume={17},
-  number={1},
-  pages={13--27},
-  year={2023},
-  publisher={Inderscience Publishers (IEL)}
-}
-
-@article{abd2024ckan,
-  title={Ckan: Convolutional kolmogorov--arnold networks model for intrusion detection in iot environment},
-  author={Abd Elaziz, Mohamed and Fares, Ibrahim Ahmed and Aseeri, Ahmad O},
-  journal={IEEE Access},
-  year={2024},
-  publisher={IEEE}
+@article{mahmoud2026enhancing,
+  title={Enhancing Particle Swarm Optimization Based on Optical Computing Mechanism: Application to Dyslexia Detection},
+  author={Mahmoud, Nermine and Abd Elaziz, Mohamed and Dahou, Abdelghani and Ghatasheh, Mohammad and Fares, Ibrahim A and Al-Betar, Mohammed Azmi},
+  journal={Frontiers in Artificial Intelligence},
+  volume={8},
+  pages={1731997},
+  year={2026},
+  publisher={Frontiers}
 }
 
 @article{fares2025explainable,
-  title={Explainable tabnet transformer-based on google vizier optimizer for anomaly intrusion detection system},
+  title={Explainable TabNet Transformer-Based on Google Vizier Optimizer for Anomaly Intrusion Detection System},
   author={Fares, Ibrahim A and Abd Elaziz, Mohamed},
   journal={Knowledge-Based Systems},
   volume={316},
@@ -262,34 +272,13 @@ document.addEventListener('DOMContentLoaded', () => {
 }
 
 @article{fares2025tfkan,
-  title={TFKAN: transformer based on Kolmogorov--Arnold networks for intrusion detection in IoT environment},
+  title={TFKAN: Transformer Based on Kolmogorov–Arnold Networks for Intrusion Detection in IoT Environment},
   author={Fares, Ibrahim A and Abd Elaziz, Mohamed and Aseeri, Ahmad O and Zied, Hamed Shawky and Abdellatif, Ahmed G},
   journal={Egyptian Informatics Journal},
   volume={30},
   pages={100666},
   year={2025},
   publisher={Elsevier}
-}
-
-@article{abd2025federated,
-  title={Federated learning framework for IoT intrusion detection using tab transformer and nature-inspired hyperparameter optimization},
-  author={Abd Elaziz, Mohamed and Fares, Ibrahim A and Dahou, Abdelghani and Shrahili, Mansour},
-  journal={Frontiers in Big Data},
-  volume={8},
-  pages={1526480},
-  year={2025},
-  publisher={Frontiers Media SA}
-}
-
-@article{fares2025ft,
-  title={FT-Transformer for Intrusion Detection in IoT Environment},
-  author={Fares, Ibrahim Ahmed and Abd Elaziz, Mohamed},
-  journal={Bulletin of Faculty of Science, Zagazig University},
-  volume={2025},
-  number={1},
-  pages={114--123},
-  year={2025},
-  publisher={Zagazig University; Faculty of Science. Center of Scientific Studies and~…}
 }
 
 @article{fares2025deep,
@@ -300,14 +289,74 @@ document.addEventListener('DOMContentLoaded', () => {
   publisher={IEEE}
 }
 
+@article{abd2025federated,
+  title={Federated Learning Framework for IoT Intrusion Detection Using Tab Transformer and Nature-Inspired Hyperparameter Optimization},
+  author={Abd Elaziz, Mohamed and Fares, Ibrahim A and Dahou, Abdelghani and Shrahili, Mansour},
+  journal={Frontiers in Big Data},
+  volume={8},
+  pages={1526480},
+  year={2025},
+  publisher={Frontiers Media SA}
+}
+
+@article{fares2025ft,
+  title={FT-Transformer for Intrusion Detection in IoT Environment},
+  author={Fares, Ibrahim A and Abd Elaziz, Mohamed},
+  journal={Bulletin of Faculty of Science, Zagazig University},
+  volume={2025},
+  number={1},
+  pages={114-123},
+  year={2025}
+}
+
 @article{nafisah2025deep,
-  title={Deep learning-based feature selection for detection of autism spectrum disorder},
-  author={Nafisah, Ibrahim and Mahmoud, Nermine and Ewees, Ahmed A and Khattap, Mohamed G and Dahou, Abdelghani and Alghamdi, Safar M and Fares, Ibrahim A and Azmi Al-Betar, Mohammed and Abd Elaziz, Mohamed},
+  title={Deep Learning-Based Feature Selection for Detection of Autism Spectrum Disorder},
+  author={Nafisah, Ibrahim and Mahmoud, Nermine and Ewees, Ahmed A and Khattap, Mohamed G and Dahou, Abdelghani and Alghamdi, Safar M and Fares, Ibrahim A and Al-Betar, Mohammed Azmi and Abd Elaziz, Mohamed},
   journal={Frontiers in Artificial Intelligence},
   volume={8},
   pages={1594372},
   year={2025},
   publisher={Frontiers Media SA}
+}
+
+@article{dahou2025enhanced,
+  title={Enhanced Snow Geese Algorithm and Transformer Models for Dyslexia Detection},
+  author={Dahou, Abdelghani and Mahmoud, Nermine H and Nafisah, Ibrahim and Abd Elaziz, Mohamed Adel and Alghamdi, Safar M and Ghatasheh, Mohammad and Fares, Ibrahim A},
+  journal={Journal of Disability Research},
+  volume={4},
+  number={5},
+  pages={20250746},
+  year={2025}
+}
+
+@article{abd2024ckan,
+  title={CKAN: Convolutional Kolmogorov–Arnold Networks Model for Intrusion Detection in IoT Environment},
+  author={Abd Elaziz, Mohamed and Fares, Ibrahim A and Aseeri, Ahmad O},
+  journal={IEEE Access},
+  volume={12},
+  pages={134837-134851},
+  year={2024},
+  publisher={IEEE}
+}
+
+@article{fares2023solving,
+  title={Solving Capacitated Vehicle Routing Problem with Route Optimisation Based on Equilibrium Optimiser Algorithm},
+  author={Fares, Ibrahim and Hassanien, Aboul Ella and Rizk-Allah, Rizk M and Farouk, Roushdy Mohamed and Abo-donia, Hassan Mostafa},
+  journal={International Journal of Computing Science and Mathematics},
+  volume={17},
+  number={1},
+  pages={13-27},
+  year={2023},
+  publisher={Inderscience Publishers}
+}
+
+@inproceedings{fares2020multiple,
+  title={Multiple Cyclic Swarming Optimization for Uni- and Multi-modal Functions},
+  author={Fares, Ibrahim and Rizk-Allah, Rizk M and Hassanien, Aboul Ella and Vaclav, Snasel},
+  booktitle={International Conference on Innovative Computing and Communications},
+  pages={887-898},
+  year={2020},
+  organization={Springer Singapore}
 }
 `;
 

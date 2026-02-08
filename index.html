@@ -5,18 +5,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ibrahim A. Fares - Modern Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 
 <body>
     <nav class="navbar">
         <div class="container">
             <a href="#hero" class="logo">Ibrahim A. Fares</a>
+            <div class="menu-toggle" id="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
             <ul class="nav-links">
                 <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
                 <li><a href="#research">Research</a></li>
                 <li><a href="#education">Education</a></li>
-                <li><a href="#experience">Experience</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#publications">Publications</a></li>
                 <li><a href="#skills">Skills</a></li>
@@ -28,10 +37,12 @@
     <section id="hero" class="hero-section">
         <div class="hero-content">
             <h1>Ibrahim A. Fares</h1>
+            <p class="subtitle">PhD in Machine Learning & Cybersecurity</p>
             <p class="typing-animation"></p>
             <div class="hero-buttons">
                 <a href="#contact" class="btn primary-btn">Get in Touch</a>
-                <a href="ML Postdoc researcher-Ibrahim Fares.pdf" target="_blank" class="btn secondary-btn" download>Download CV</a>
+                <a href="ML Postdoc researcher-Ibrahim Fares.pdf" target="_blank" class="btn secondary-btn"
+                    download>Download CV</a>
             </div>
         </div>
     </section>
@@ -39,133 +50,127 @@
     <main class="container">
         <section id="about" class="reveal">
             <h2>About Me</h2>
-            <p>A dedicated and innovative researcher with a Ph.D. in Computer Science, specializing in the application of machine learning and optimization algorithms to solve complex cybersecurity challenges. My work is characterized by a strong publication
-                record in reputable journals and a commitment to advancing the frontiers of AI. I am actively seeking a Postdoctoral Research position or a Lecturer (Assistant Professor) role where I can leverage my expertise in Deep Learning, LLMs, and
-                Cybersecurity to contribute to high-impact research and mentor the next generation of computer scientists.</p>
+            <p>I am an Assistant Professor at the Department of Cybersecurity, College of Engineering and Information
+                Technology, Buraydah Private Colleges, Saudi Arabia. With a PhD in Optimizing ML for Cybersecurity from
+                Zagazig University, Egypt, my research focuses on the intersection of Machine Learning, Deep Learning,
+                and Cybersecurity, specifically in IoT environments. I am passionate about advancing AI technologies,
+                including Large Language Models (LLMs) and Generative AI, to solve complex real-world problems.</p>
         </section>
 
         <section id="research" class="reveal">
             <h2>Research Interests</h2>
             <div class="research-grid">
-                <div class="research-item">
-                    <span>Machine Learning & Deep Learning</span>
-                    <div class="progress-bar-container">
-                        <div class="progress-bar" data-progress="98%"></div>
-                    </div>
-                </div>
-                <div class="research-item">
-                    <span>Natural Language Processing (NLP)</span>
-                    <div class="progress-bar-container">
-                        <div class="progress-bar" data-progress="92%"></div>
-                    </div>
-                </div>
-                <div class="research-item">
-                    <span>Large Language Models (LLMs)</span>
-                    <div class="progress-bar-container">
-                        <div class="progress-bar" data-progress="95%"></div>
-                    </div>
-                </div>
-                <div class="research-item">
-                    <span>LLM Fine-tuning & Prompt Engineering</span>
-                    <div class="progress-bar-container">
-                        <div class="progress-bar" data-progress="90%"></div>
-                    </div>
-                </div>
-                <div class="research-item">
-                    <span>Generative AI & Multimodal Models</span>
-                    <div class="progress-bar-container">
-                        <div class="progress-bar" data-progress="89%"></div>
-                    </div>
-                </div>
-                <div class="research-item">
-                    <span>Optimization Algorithms</span>
-                    <div class="progress-bar-container">
-                        <div class="progress-bar" data-progress="96%"></div>
-                    </div>
-                </div>
-                <div class="research-item">
-                    <span>Cybersecurity & Intrusion Detection</span>
-                    <div class="progress-bar-container">
-                        <div class="progress-bar" data-progress="97%"></div>
-                    </div>
-                </div>
-                <div class="research-item">
-                    <span>Internet of Things (IoT)</span>
-                    <div class="progress-bar-container">
-                        <div class="progress-bar" data-progress="91%"></div>
-                    </div>
-                </div>
-                <div class="research-item">
-                    <span>Federated Learning</span>
-                    <div class="progress-bar-container">
-                        <div class="progress-bar" data-progress="88%"></div>
-                    </div>
-                </div>
-                <div class="research-item">
-                    <span>Transformer Architectures</span>
-                    <div class="progress-bar-container">
-                        <div class="progress-bar" data-progress="94%"></div>
-                    </div>
-                </div>
+                <div class="research-item"><span>Machine Learning & Deep Learning</span></div>
+                <div class="research-item"><span>Natural Language Processing (NLP)</span></div>
+                <div class="research-item"><span>Large Language Models (LLMs)</span></div>
+                <div class="research-item"><span>LLM Fine-tuning & Prompt Engineering</span></div>
+                <div class="research-item"><span>Generative AI & Multimodal Models</span></div>
+                <div class="research-item"><span>Optimization Algorithms</span></div>
+                <div class="research-item"><span>Cybersecurity & Intrusion Detection</span></div>
+                <div class="research-item"><span>Internet of Things (IoT)</span></div>
+                <div class="research-item"><span>Federated Learning</span></div>
+                <div class="research-item"><span>Transformer Architectures</span></div>
             </div>
         </section>
 
         <section id="education" class="reveal">
             <h2>Education</h2>
-            <div class="education-item">
-                <h4>PhD in Optimizing ML for Cybersecurity</h4>
-                <div class="thesis-title">Thesis: Cyber Security Threats Detection in Internet of Things Based on Optimization Algorithms</div>
-                <div class="date">Zagazig University, Egypt (2021-2024)</div>
-            </div>
-            <div class="education-item">
-                <h4>Master's in Using Optimization algorithms for IoT application</h4>
-                <div class="thesis-title">Thesis: Bio-Inspired Algorithms for Optimizing Dynamic Noisy Environment in Smart Cities</div>
-                <div class="date">Zagazig University, Egypt (2018-2020)</div>
-            </div>
-            <div class="education-item">
-                <h4>BSc in Math. & Computer Science</h4>
-                <div class="date">Zagazig University, Egypt (2012-2016)</div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">2021 - 2024</div>
+                    <div class="timeline-content">
+                        <h4>PhD in Optimizing ML for Cybersecurity</h4>
+                        <p class="institution">Zagazig University, Egypt</p>
+                        <p class="thesis">Thesis: Cyber Security Threats Detection in Internet of Things Based on
+                            Optimization Algorithms.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">2018 - 2020</div>
+                    <div class="timeline-content">
+                        <h4>Master's in Using Optimization Algorithms for IoT Application</h4>
+                        <p class="institution">Zagazig University, Egypt</p>
+                        <p class="thesis">Thesis: Bio-Inspired Algorithms for Optimizing Dynamic Noisy Environment in
+                            Smart Cities.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">2012 - 2016</div>
+                    <div class="timeline-content">
+                        <h4>BSc in Math & Computer Science</h4>
+                        <p class="institution">Zagazig University, Egypt</p>
+                    </div>
+                </div>
             </div>
         </section>
 
         <section id="experience" class="reveal">
             <h2>Academic Experience</h2>
-            <div class="experience-item">
-                <h4>Lecturer</h4>
-                <div class="date">Zagazig University (2024-Present)</div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">2025 - Present</div>
+                    <div class="timeline-content">
+                        <h4>Assistant Professor</h4>
+                        <p class="institution">Buraydah Private Colleges, Saudi Arabia</p>
+                        <p class="details">Department of Cybersecurity, College of Engineering and Information
+                            Technology</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">2024 - 2025</div>
+                    <div class="timeline-content">
+                        <h4>Assistant Professor</h4>
+                        <p class="institution">Faculty of Science, Zagazig University, Egypt</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">2021 - 2024</div>
+                    <div class="timeline-content">
+                        <h4>Assistant Lecturer</h4>
+                        <p class="institution">Faculty of Science, Zagazig University, Egypt</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">2016 - 2021</div>
+                    <div class="timeline-content">
+                        <h4>Demonstrator</h4>
+                        <p class="institution">Faculty of Science, Zagazig University, Egypt</p>
+                    </div>
+                </div>
             </div>
-            <div class="experience-item">
-                <h4>Assistant Lecturer</h4>
-                <div class="date">Zagazig University (2021-2024)</div>
-            </div>
-            <div class="experience-item">
-                <h4>Demonstrator</h4>
-                <div class="date">Zagazig University (2016-2021)</div>
-            </div>
+
             <div class="teaching-experience">
                 <h3>Teaching Experience</h3>
-                <p>I have been teaching computer science subjects for 10 years, including:</p>
-                <div class="teaching-subjects">
-                    <div class="subject-category">
+                <p class="teaching-intro">Teaching computer science subjects for 10 years, including:</p>
+                <div class="teaching-grid">
+                    <div class="subject-card">
                         <h4>AI & Machine Learning</h4>
                         <ul>
                             <li>Artificial Intelligence</li>
                             <li>Machine Learning</li>
                             <li>Deep Learning</li>
                             <li>Natural Language Processing</li>
+                            <li>LLMs</li>
                         </ul>
                     </div>
-                    <div class="subject-category">
-                        <h4>Programming Languages</h4>
+                    <div class="subject-card">
+                        <h4>Programming</h4>
                         <ul>
                             <li>Python</li>
                             <li>C++</li>
                             <li>MATLAB</li>
-                            <li>Web Programming (HTML, CSS, JavaScript)</li>
+                            <li>Web Programming</li>
                         </ul>
                     </div>
-                    <div class="subject-category">
-                        <h4>Computer Science Fundamentals</h4>
+                    <div class="subject-card">
+                        <h4>CS Fundamentals</h4>
                         <ul>
                             <li>Data Structures</li>
                             <li>Algorithms</li>
@@ -226,42 +231,86 @@
             <h2>Technical Skills</h2>
             <div class="skills-grid">
                 <div class="skill-card">
-                    <strong>AI & ML</strong> Machine Learning, RAG, LoRA, Quantization, AI Agents, Deep Learning, NLP, Transformers, GenAI, LLMs, LLM Fine-tuning
+                    <h3>AI & ML</h3>
+                    <p>Machine Learning, Deep Learning, NLP, Transformers, GenAI, LLMs, LLM Fine-tuning, RAG, AI Agents
+                    </p>
                 </div>
                 <div class="skill-card">
-                    <strong>Programming</strong> Python, C, C++, C#, dot Net, Java, MATLAB, R
+                    <h3>Programming</h3>
+                    <p>Python, C++, Java, MATLAB</p>
                 </div>
                 <div class="skill-card">
-                    <strong>Data</strong> SQL, MySQL, NoSQL, Database Management
+                    <h3>Data</h3>
+                    <p>SQL, NoSQL, Database Management</p>
                 </div>
                 <div class="skill-card">
-                    <strong>Web</strong> HTML, CSS, JavaScript, DevOps
+                    <h3>Web Development</h3>
+                    <p>HTML, CSS, JavaScript, DevOps</p>
+                </div>
+                <div class="skill-card">
+                    <h3>Specializations</h3>
+                    <p>Optimization Algorithms, Cybersecurity, IoT, Federated Learning</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="references" class="reveal">
+            <h2>References</h2>
+            <div class="references-container">
+                <div class="reference-card">
+                    <h4>Prof. Dr. Mohamed Abd Elaziz</h4>
+                    <p class="role">PhD Supervisor</p>
+                    <a href="mailto:abd_el_aziz_m@yahoo.com">abd_el_aziz_m@yahoo.com</a>
+                </div>
+                <div class="reference-card">
+                    <h4>Prof. Dr. A.M. Elsawah</h4>
+                    <p class="role">Professor</p>
+                    <a href="mailto:amelsawah@uic.edu.cn">amelsawah@uic.edu.cn</a>
                 </div>
             </div>
         </section>
 
         <section id="contact" class="reveal">
             <h2>Contact Me</h2>
-            <p>I'm always open to discussing new projects, collaborations, or opportunities. Feel free to reach out!</p>
-            <form class="contact-form" action="mailto:ifares.cs@gmail.com" method="post" enctype="text/plain">
-                <div class="form-group">
-                    <input type="text" id="name" name="name" required>
-                    <label for="name">Your Name</label>
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <p>I'm always open to discussing new projects, collaborations, or opportunities.</p>
+                    <div class="info-item">
+                        <span class="icon">📧</span>
+                        <div>
+                            <a href="mailto:ibrahimfares@science.zu.edu.eg">ibrahimfares@science.zu.edu.eg</a><br>
+                            <a href="mailto:ifares.cs@gmail.com">ifares.cs@gmail.com</a>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <span class="icon">📱</span>
+                        <span>(+20) 01014399619</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="icon">📍</span>
+                        <span>Zagazig, Egypt</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="icon">🌐</span>
+                        <a href="https://ifares-csi.github.io/" target="_blank">Portfolio</a> |
+                        <a href="https://scholar.google.com/citations?user=your_id" target="_blank">Google Scholar</a>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <input type="email" id="email" name="email" required>
-                    <label for="email">Your Email</label>
-                </div>
-                <div class="form-group">
-                    <textarea id="message" name="message" rows="5" required></textarea>
-                    <label for="message">Your Message</label>
-                </div>
-                <button type="submit" class="btn primary-btn">Send Message</button>
-            </form>
-            <div class="contact-info-bottom">
-                <p>Email: <a href="mailto:ibrahimfares@science.zu.edu.eg">ibrahimfares@science.zu.edu.eg</a> | <a href="mailto:ifares.cs@gmail.com">ifares.cs@gmail.com</a></p>
-                <p>Phone: (+20) 01014399619</p>
-                <p>Location: Zagazig, Egypt</p>
+                <form class="contact-form" action="mailto:ifares.cs@gmail.com" method="post" enctype="text/plain">
+                    <div class="form-group">
+                        <input type="text" id="name" name="name" required placeholder=" ">
+                        <label for="name">Your Name</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" required placeholder=" ">
+                        <label for="email">Your Email</label>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" name="message" rows="5" required placeholder=" "></textarea>
+                        <label for="message">Your Message</label>
+                    </div>
+                    <button type="submit" class="btn primary-btn">Send Message</button>
+                </form>
             </div>
         </section>
     </main>
